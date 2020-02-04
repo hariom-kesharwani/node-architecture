@@ -17,11 +17,10 @@ class Routes{
     this.routes.post('/GetSectorByPropertyID',
       propertyValidator.checkProperty,
       function(req:Request, res:Response, next:NextFunction) {
-        const result = validationResult(req);
-        if (!result.isEmpty()) {
-          return res.status(422).json({ errors: result.array() });
-        }
-        res.send("hello");
+        
+        res
+        .status(200)
+        .send({data:"success"});
       }
     );
 
