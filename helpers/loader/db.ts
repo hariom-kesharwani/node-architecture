@@ -1,14 +1,10 @@
 import mssqlInstance from 'mssql'; 
+import config from '../../config';
 
-var config = {
-  server: "localhost",
-  user: "sa",
-  password: "zxcasdqwe@90",
-  database: "rise",
-};
 export default async (): Promise<any> => {
     try{
-        const pool: mssqlInstance.ConnectionPool = new mssqlInstance.ConnectionPool(config);
+        var dbConfig: any= config.sql;
+        const pool: mssqlInstance.ConnectionPool = await new mssqlInstance.ConnectionPool(dbConfig);
         const poolConnect = await pool.connect();
         return poolConnect;
     }catch(err){

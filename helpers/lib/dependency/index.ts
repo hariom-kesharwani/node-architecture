@@ -1,5 +1,5 @@
 import { Container } from 'typedi';
-import dbLoader from './../../loader/db'
+import dbLoader from '../../loader/db'
 export default async () => {
     try{
         

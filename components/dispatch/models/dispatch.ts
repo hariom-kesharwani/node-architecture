@@ -8,8 +8,10 @@ export default class Dispatch {
 
   public async getSector(propertyId:any){
     try {
-      let result = await this.sqlConnection.request()
-            .query('select * from inventory'); 
+      let result = await this
+                      .sqlConnection
+                      .request()
+                      .query('exec usp_GetOfficerStatus'); 
         return result.recordset;
     }
     catch (err) {
