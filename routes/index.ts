@@ -1,3 +1,3 @@
-import urserRoutes from '../components/users/routes';
+import urserRoutes from '../components/dispatch/routes';
 
 module.exports = [urserRoutes];

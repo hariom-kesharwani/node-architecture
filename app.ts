@@ -12,7 +12,8 @@ class App {
         this.config();
     }
 
-    public config() {
+    public async config() {
+        await require('./helpers/loader').default({ expressApp: this.app })
         this.app.use(cors());
         this.app.use(bodyParser.json({limit: '50mb'}));
         this.app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
