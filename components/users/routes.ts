@@ -1,7 +1,4 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { check,validationResult } from 'express-validator';
-//const validate = require('../validators/validate');
-const validate = require('./../../validators/validate');
 const propertyValidator = require('./validators/property.chains');
 
 class Routes{
