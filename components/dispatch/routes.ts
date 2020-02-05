@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
+
 const propertyValidator = require('./validators/property.chains');
 import dispatchController from './controllers/dispatch.controller'
 
@@ -16,7 +17,6 @@ class Routes{
     this.routes.post('/GetSectorByPropertyID',
       propertyValidator.checkProperty,
       async function(req:Request, res:Response, next:NextFunction) {
-        
         try{
           let propertyId= req.body.property_id;
           let data= await dispatchController.getSectorByPropertyId(propertyId);
@@ -25,13 +25,7 @@ class Routes{
           .send({data:data});
 
         }catch(ex){
-          res
-          .status(500)
-          .send(
-            {
-              message:'Error in handling Request'
-            }
-          );
+          next(ex);
         }
         
       }

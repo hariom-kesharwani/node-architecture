@@ -15,8 +15,7 @@ export default class Dispatch {
         return result.recordset;
     }
     catch (err) {
-      console.log(err);
-        throw err;
+      throw err;
     }
   }
 }
